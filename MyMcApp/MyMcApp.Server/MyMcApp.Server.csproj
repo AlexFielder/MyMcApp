@@ -13,7 +13,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>LightSwitchApplication</RootNamespace>
     <AssemblyName>Application.Server</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <LightSwitchVersion>v3.0</LightSwitchVersion>
     <DefaultLanguage>en-US</DefaultLanguage>
     <SupportedCultures>en-US</SupportedCultures>
