@@ -196,6 +196,9 @@
       <Private>True</Private>
       <ProjectCritical>True</ProjectCritical>
     </Reference>
+    <Reference Include="TheTVDBSharp">
+      <HintPath>..\..\..\TheTVDBSharp\TheTVDBSharp\bin\Debug\TheTVDBSharp.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />

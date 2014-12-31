@@ -374,11 +374,261 @@
         </QueryOperationParameter.Attributes>
       </QueryOperationParameter>
     </QueryOperation>
+    <EntitySet
+      Name="Episodes"
+      CanDelete="True"
+      CanInsert="True"
+      CanUpdate="True"
+      EntityType="Episode" />
+    <QueryOperation
+      Name="Episodes_Single"
+      ReturnType="Episode">
+      <QueryOperation.Attributes>
+        <Generated />
+        <Description
+          Value="Returns the entity whose identity is specified by the parameter(s)." />
+      </QueryOperation.Attributes>
+      <QueryOperation.FilterExpression>
+        <QueryFilterExpressionTree>
+          <BinaryExpression
+            NodeType="Equal">
+            <BinaryExpression.Left>
+              <ChainExpression>
+                <MemberExpression
+                  Member="Id" />
+              </ChainExpression>
+            </BinaryExpression.Left>
+            <BinaryExpression.Right>
+              <ParameterExpression
+                Parameter="Id" />
+            </BinaryExpression.Right>
+          </BinaryExpression>
+        </QueryFilterExpressionTree>
+      </QueryOperation.FilterExpression>
+      <QueryOperation.Source>
+        <QuerySourceExpressionTree>
+          <MemberExpression
+            Member="Episodes" />
+        </QuerySourceExpressionTree>
+      </QueryOperation.Source>
+      <QueryOperationParameter
+        Name="Id"
+        ParameterType=":Int32?">
+        <QueryOperationParameter.Attributes>
+          <Description
+            Value="The value of the 'Id' key property of the entity to retrieve." />
+        </QueryOperationParameter.Attributes>
+      </QueryOperationParameter>
+    </QueryOperation>
+    <QueryOperation
+      Name="Episodes_SingleOrDefault"
+      ReturnType="Episode">
+      <QueryOperation.Attributes>
+        <Generated />
+        <Description
+          Value="Returns the entity whose identity is specified by the parameter(s) or null if no such entity exists." />
+      </QueryOperation.Attributes>
+      <QueryOperation.FilterExpression>
+        <QueryFilterExpressionTree>
+          <BinaryExpression
+            NodeType="Equal">
+            <BinaryExpression.Left>
+              <ChainExpression>
+                <MemberExpression
+                  Member="Id" />
+              </ChainExpression>
+            </BinaryExpression.Left>
+            <BinaryExpression.Right>
+              <ParameterExpression
+                Parameter="Id" />
+            </BinaryExpression.Right>
+          </BinaryExpression>
+        </QueryFilterExpressionTree>
+      </QueryOperation.FilterExpression>
+      <QueryOperation.Source>
+        <QuerySourceExpressionTree>
+          <MemberExpression
+            Member="Episodes" />
+        </QuerySourceExpressionTree>
+      </QueryOperation.Source>
+      <QueryOperationParameter
+        Name="Id"
+        ParameterType=":Int32?">
+        <QueryOperationParameter.Attributes>
+          <Description
+            Value="The value of the 'Id' key property of the entity to retrieve." />
+        </QueryOperationParameter.Attributes>
+      </QueryOperationParameter>
+    </QueryOperation>
+    <AssociationSet
+      Name="Episode_Actors"
+      Association="Episode_Actor">
+      <AssociationSetEnd
+        Name="Episode"
+        EntitySet="Episodes" />
+      <AssociationSetEnd
+        Name="Actor"
+        EntitySet="Actors" />
+    </AssociationSet>
+    <AssociationSet
+      Name="Show_Episodes"
+      Association="Show_Episode">
+      <AssociationSetEnd
+        Name="Show"
+        EntitySet="Shows" />
+      <AssociationSetEnd
+        Name="Episode"
+        EntitySet="Episodes" />
+    </AssociationSet>
+    <AssociationSet
+      Name="Movie_Actors"
+      Association="Movie_Actor">
+      <AssociationSetEnd
+        Name="Movie"
+        EntitySet="Movies" />
+      <AssociationSetEnd
+        Name="Actor"
+        EntitySet="Actors" />
+    </AssociationSet>
+    <AssociationSet
+      Name="User_Shows"
+      Association="User_Show">
+      <AssociationSetEnd
+        Name="User"
+        EntitySet="Users" />
+      <AssociationSetEnd
+        Name="Show"
+        EntitySet="Shows" />
+    </AssociationSet>
   </EntityContainer>
   <DataService
     Name="ApplicationDataMapping"
     DataProvider="EntityFrameworkDataProvider"
-    EntityContainer="ApplicationData" />
+    EntityContainer="ApplicationData">
+    <EntitySetMapping
+      EntitySet="Actors">
+      <EntitySetMapping.Attributes>
+        <SsdlForeignKeyProperty
+          Name="Show_Actor"
+          Nullable="False"
+          Type="int" />
+        <SsdlForeignKeyProperty
+          Name="Cast_Actor"
+          Nullable="True"
+          Type="int" />
+        <SsdlForeignKeyProperty
+          Name="Episode_Actor"
+          Nullable="False"
+          Type="int" />
+        <SsdlForeignKeyProperty
+          Name="Movie_Actor"
+          Nullable="True"
+          Type="int" />
+      </EntitySetMapping.Attributes>
+    </EntitySetMapping>
+    <AssociationSetMapping
+      AssociationSet="Episode_Actors">
+      <AssociationSetMapping.Attributes>
+        <SsdlAssociationSet
+          Name="Episode_Actors" />
+        <SsdlAssociationSetEnd
+          End="ApplicationData/Members[Episode_Actors]/Members[Episode]">
+          <SsdlAssociationSetEnd.Attributes>
+            <SsdlPropertyRef
+              Name="Id" />
+          </SsdlAssociationSetEnd.Attributes>
+        </SsdlAssociationSetEnd>
+        <SsdlAssociationSetEnd
+          End="ApplicationData/Members[Episode_Actors]/Members[Actor]">
+          <SsdlAssociationSetEnd.Attributes>
+            <SsdlPropertyRef
+              Name="Episode_Actor" />
+          </SsdlAssociationSetEnd.Attributes>
+        </SsdlAssociationSetEnd>
+      </AssociationSetMapping.Attributes>
+    </AssociationSetMapping>
+    <AssociationSetMapping
+      AssociationSet="Show_Episodes">
+      <AssociationSetMapping.Attributes>
+        <SsdlAssociationSet
+          Name="Show_Episodes" />
+        <SsdlAssociationSetEnd
+          End="ApplicationData/Members[Show_Episodes]/Members[Show]">
+          <SsdlAssociationSetEnd.Attributes>
+            <SsdlPropertyRef
+              Name="Id" />
+          </SsdlAssociationSetEnd.Attributes>
+        </SsdlAssociationSetEnd>
+        <SsdlAssociationSetEnd
+          End="ApplicationData/Members[Show_Episodes]/Members[Episode]">
+          <SsdlAssociationSetEnd.Attributes>
+            <SsdlPropertyRef
+              Name="Show_Episode" />
+          </SsdlAssociationSetEnd.Attributes>
+        </SsdlAssociationSetEnd>
+      </AssociationSetMapping.Attributes>
+    </AssociationSetMapping>
+    <EntitySetMapping
+      EntitySet="Episodes">
+      <EntitySetMapping.Attributes>
+        <SsdlForeignKeyProperty
+          Name="Show_Episode"
+          Nullable="True"
+          Type="int" />
+      </EntitySetMapping.Attributes>
+    </EntitySetMapping>
+    <AssociationSetMapping
+      AssociationSet="Movie_Actors">
+      <AssociationSetMapping.Attributes>
+        <SsdlAssociationSet
+          Name="Movie_Actors" />
+        <SsdlAssociationSetEnd
+          End="ApplicationData/Members[Movie_Actors]/Members[Movie]">
+          <SsdlAssociationSetEnd.Attributes>
+            <SsdlPropertyRef
+              Name="Id" />
+          </SsdlAssociationSetEnd.Attributes>
+        </SsdlAssociationSetEnd>
+        <SsdlAssociationSetEnd
+          End="ApplicationData/Members[Movie_Actors]/Members[Actor]">
+          <SsdlAssociationSetEnd.Attributes>
+            <SsdlPropertyRef
+              Name="Movie_Actor" />
+          </SsdlAssociationSetEnd.Attributes>
+        </SsdlAssociationSetEnd>
+      </AssociationSetMapping.Attributes>
+    </AssociationSetMapping>
+    <AssociationSetMapping
+      AssociationSet="User_Shows">
+      <AssociationSetMapping.Attributes>
+        <SsdlAssociationSet
+          Name="User_Shows" />
+        <SsdlAssociationSetEnd
+          End="ApplicationData/Members[User_Shows]/Members[User]">
+          <SsdlAssociationSetEnd.Attributes>
+            <SsdlPropertyRef
+              Name="Id" />
+          </SsdlAssociationSetEnd.Attributes>
+        </SsdlAssociationSetEnd>
+        <SsdlAssociationSetEnd
+          End="ApplicationData/Members[User_Shows]/Members[Show]">
+          <SsdlAssociationSetEnd.Attributes>
+            <SsdlPropertyRef
+              Name="User_Show" />
+          </SsdlAssociationSetEnd.Attributes>
+        </SsdlAssociationSetEnd>
+      </AssociationSetMapping.Attributes>
+    </AssociationSetMapping>
+    <EntitySetMapping
+      EntitySet="Shows">
+      <EntitySetMapping.Attributes>
+        <SsdlForeignKeyProperty
+          Name="User_Show"
+          Nullable="True"
+          Type="int" />
+      </EntitySetMapping.Attributes>
+    </EntitySetMapping>
+  </DataService>
   <EntityType
     Name="User">
     <EntityType.Methods>
@@ -435,6 +685,11 @@
             Value="255" />
         </EntityProperty.Attributes>
       </EntityProperty>
+      <NavigationProperty
+        Name="FavouriteShows"
+        Association="User_Show"
+        FromEnd="User"
+        ToEnd="Show" />
     </EntityType.Properties>
   </EntityType>
   <GlobalAttributeGroup
@@ -501,6 +756,11 @@
             Value="255" />
         </EntityProperty.Attributes>
       </EntityProperty>
+      <NavigationProperty
+        Name="Actors"
+        Association="Movie_Actor"
+        FromEnd="Movie"
+        ToEnd="Actor" />
     </EntityType.Properties>
   </EntityType>
   <EntityType
@@ -549,6 +809,16 @@
             Value="255" />
         </EntityProperty.Attributes>
       </EntityProperty>
+      <NavigationProperty
+        Name="Episode"
+        Association="Episode_Actor"
+        FromEnd="Actor"
+        ToEnd="Episode" />
+      <NavigationProperty
+        Name="Movie"
+        Association="Movie_Actor"
+        FromEnd="Actor"
+        ToEnd="Movie" />
     </EntityType.Properties>
   </EntityType>
   <EntityType
@@ -606,6 +876,144 @@
             Value="255" />
         </EntityProperty.Attributes>
       </EntityProperty>
+      <NavigationProperty
+        Name="Episodes"
+        Association="Show_Episode"
+        FromEnd="Show"
+        ToEnd="Episode" />
+      <NavigationProperty
+        Name="User"
+        Association="User_Show"
+        FromEnd="Show"
+        ToEnd="User" />
     </EntityType.Properties>
   </EntityType>
+  <EntityType
+    Name="Episode">
+    <EntityType.Methods>
+      <EntityMethod
+        Name="Delete">
+        <EntityMethod.Attributes>
+          <Generated />
+        </EntityMethod.Attributes>
+      </EntityMethod>
+    </EntityType.Methods>
+    <EntityType.Properties>
+      <KeyProperty
+        Name="Id"
+        PropertyType=":Int32">
+        <KeyProperty.Attributes>
+          <Required />
+          <NotSearchable />
+        </KeyProperty.Attributes>
+      </KeyProperty>
+      <EntityProperty
+        Name="RowVersion"
+        PropertyType=":RowVersion">
+        <EntityProperty.Attributes>
+          <UseForConcurrency />
+          <Generated />
+          <Hidden />
+          <NotSearchable />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <EntityProperty
+        Name="EpisodeName"
+        PropertyType=":String">
+        <EntityProperty.Attributes>
+          <Required />
+          <MaxLength
+            Value="255" />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <EntityProperty
+        Name="AirDate"
+        PropertyType=":Date">
+        <EntityProperty.Attributes>
+          <Required />
+          <NotSearchable />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <EntityProperty
+        Name="Season"
+        PropertyType=":String">
+        <EntityProperty.Attributes>
+          <Required />
+          <MaxLength
+            Value="255" />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <NavigationProperty
+        Name="Cast"
+        Association="Episode_Actor"
+        FromEnd="Episode"
+        ToEnd="Actor" />
+      <NavigationProperty
+        Name="Show"
+        Association="Show_Episode"
+        FromEnd="Episode"
+        ToEnd="Show" />
+    </EntityType.Properties>
+  </EntityType>
+  <Association
+    Name="Episode_Actor">
+    <AssociationEnd
+      Name="Episode"
+      Multiplicity="One"
+      EntityType="Episode">
+      <AssociationEnd.Attributes>
+        <DeleteRule
+          Action="Restrict" />
+      </AssociationEnd.Attributes>
+    </AssociationEnd>
+    <AssociationEnd
+      Name="Actor"
+      Multiplicity="Many"
+      EntityType="Actor" />
+  </Association>
+  <Association
+    Name="Show_Episode">
+    <AssociationEnd
+      Name="Show"
+      EntityType="Show">
+      <AssociationEnd.Attributes>
+        <DeleteRule
+          Action="Restrict" />
+      </AssociationEnd.Attributes>
+    </AssociationEnd>
+    <AssociationEnd
+      Name="Episode"
+      Multiplicity="Many"
+      EntityType="Episode" />
+  </Association>
+  <Association
+    Name="Movie_Actor">
+    <AssociationEnd
+      Name="Movie"
+      EntityType="Movie">
+      <AssociationEnd.Attributes>
+        <DeleteRule
+          Action="Restrict" />
+      </AssociationEnd.Attributes>
+    </AssociationEnd>
+    <AssociationEnd
+      Name="Actor"
+      Multiplicity="Many"
+      EntityType="Actor" />
+  </Association>
+  <Association
+    Name="User_Show">
+    <AssociationEnd
+      Name="User"
+      EntityType="User">
+      <AssociationEnd.Attributes>
+        <DeleteRule
+          Action="Restrict" />
+      </AssociationEnd.Attributes>
+    </AssociationEnd>
+    <AssociationEnd
+      Name="Show"
+      Multiplicity="Many"
+      EntityType="Show" />
+  </Association>
 </ModelFragment>

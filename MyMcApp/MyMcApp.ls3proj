@@ -27,6 +27,7 @@
     <ServiceConfigurationFile>ServiceConfiguration.cscfg</ServiceConfigurationFile>
     <SqlExpressInstanceName>(LocalDB)\v11.0</SqlExpressInstanceName>
     <DebugSharePointAuthenticationType>AccessControlService</DebugSharePointAuthenticationType>
+    <DefaultLanguage>en-US</DefaultLanguage>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <DebugSymbols>true</DebugSymbols>
@@ -73,7 +74,7 @@
     <ServiceConfiguration Include="ServiceConfiguration.cscfg" />
   </ItemGroup>
   <ItemGroup Condition="'$(BuildingInsideVisualStudio)' != 'true'">
-    <ProjectReference Include="MyMcApp.HTMLClient\MyMcApp.HTMLClient.jsproj">
+    <ProjectReference Include="MyMcApp.DesktopClient\MyMcApp.DesktopClient.csproj">
       <Name>Client</Name>
     </ProjectReference>
     <ProjectReference Include="MyMcApp.Server\MyMcApp.Server.csproj">
@@ -81,12 +82,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup Condition="'$(BuildingInsideVisualStudio)' == 'true'">
-    <SubProject Include="MyMcApp.HTMLClient\MyMcApp.HTMLClient.jsproj">
-      <TypeGuid>{DA98106F-DEFA-4A62-8804-0BD2F166A45D}</TypeGuid>
-      <BaseTypeGuid>{262852c6-cd72-467d-83fe-5eeb1973a190}</BaseTypeGuid>
-      <Name>Client</Name>
-      <InstanceGuid>{34904d17-0086-435c-9840-c6e732e0a2ea}</InstanceGuid>
-    </SubProject>
     <SubProject Include="MyMcApp.Server\MyMcApp.Server.csproj">
       <TypeGuid>{DA98106F-DEFA-4A62-8804-0BD2F166A45D}</TypeGuid>
       <BaseTypeGuid>{FAE04EC0-301F-11d3-BF4B-00C04F79EFBC}</BaseTypeGuid>
@@ -149,10 +144,19 @@
     </_BuildFile>
   </ItemGroup>
   <ItemGroup>
-    <LightSwitchExtension Include="Microsoft.LightSwitch.Cosmopolitan" />
+    <LightSwitchExtension Include="Microsoft.LightSwitch.Cosmopolitan">
+      <Client>MICROSOFT.LIGHTSWITCH.COSMOPOLITAN.CLIENT</Client>
+    </LightSwitchExtension>
     <LightSwitchExtension Include="Microsoft.LightSwitch.Extensions">
+      <Client>MICROSOFT.LIGHTSWITCH.EXTENSIONS.CLIENT;MICROSOFT.LIGHTSWITCH.EXTENSIONS.DESIGN.CLIENT</Client>
       <Server>MICROSOFT.LIGHTSWITCH.EXTENSIONS.SERVER</Server>
     </LightSwitchExtension>
+  </ItemGroup>
+  <ItemGroup>
+    <SubProject Include="MyMcApp.DesktopClient\MyMcApp.DesktopClient.csproj">
+      <InstanceGuid>{fe80b32e-c867-414a-8041-77f727fa42c6}</InstanceGuid>
+      <Name>Client</Name>
+    </SubProject>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\LightSwitch\$(LightSwitchVersion)\Microsoft.LightSwitch.targets" />
 </Project>
