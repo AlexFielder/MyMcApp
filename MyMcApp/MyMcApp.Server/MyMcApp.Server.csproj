@@ -202,9 +202,6 @@
       <Private>True</Private>
       <ProjectCritical>True</ProjectCritical>
     </Reference>
-    <Reference Include="TheTVDBSharp">
-      <HintPath>..\..\TheTVDBSharp\bin\Debug\TheTVDBSharp.dll</HintPath>
-    </Reference>
     <Reference Include="WebcamExtension.Common">
       <HintPath>..\_Pvt_Extensions\WebcamExtension\Server\Reference\WebcamExtension.Common.dll</HintPath>
     </Reference>

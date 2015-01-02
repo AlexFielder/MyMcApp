@@ -79,6 +79,9 @@
     <Reference Include="ElylsExtensions.Common">
       <HintPath>..\_Pvt_Extensions\ElylsExtensions\Client\Reference\ElylsExtensions.Common.dll</HintPath>
     </Reference>
+    <Reference Include="FolderDialogSL5">
+      <HintPath>..\..\FolderDialogSL5\Bin\Debug\FolderDialogSL5.dll</HintPath>
+    </Reference>
     <Reference Include="ICSharpCode.SharpZLib.Silverlight">
       <HintPath>..\_Pvt_Extensions\WebcamExtension\Client\Reference\ICSharpCode.SharpZLib.Silverlight.dll</HintPath>
     </Reference>

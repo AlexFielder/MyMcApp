@@ -1196,6 +1196,10 @@
                   <ContentItem
                     Name="SelectTVFolderRoot"
                     Kind="Command">
+                    <ContentItem.Attributes>
+                      <DisplayName
+                        Value="Select TV Folder Root" />
+                    </ContentItem.Attributes>
                     <ContentItem.DataSource>
                       <ScreenExpressionTree>
                         <ChainExpression>
@@ -1221,6 +1225,20 @@
                     </ChainExpression>
                   </ScreenExpressionTree>
                 </ContentItem.DataSource>
+                <ContentItem.CommandItems>
+                  <ContentItem
+                    Name="SelectMovieFolderRoot"
+                    Kind="Command">
+                    <ContentItem.DataSource>
+                      <ScreenExpressionTree>
+                        <ChainExpression>
+                          <CallExpression
+                            Target="UsersListDetail/Methods[SelectMovieFolderRoot]" />
+                        </ChainExpression>
+                      </ScreenExpressionTree>
+                    </ContentItem.DataSource>
+                  </ContentItem>
+                </ContentItem.CommandItems>
               </ContentItem>
               <ContentItem.PropertySources>
                 <ControlPropertySource
@@ -1318,6 +1336,8 @@
       </ScreenMethod>
       <ScreenMethod
         Name="SelectTVFolderRoot" />
+      <ScreenMethod
+        Name="SelectMovieFolderRoot" />
     </Screen.Methods>
     <Screen.Properties>
       <ScreenCollectionProperty

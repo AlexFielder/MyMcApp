@@ -28,8 +28,28 @@ namespace LightSwitchApplication
         partial void SelectTVFolderRoot_Execute()
         {
             // Write your code here.
-            OpenFileDialog ofd = new OpenFileDialog();
-            bool? userClickedOk = ofd.ShowDialog();
+            FolderDialogSL5.FolderDialog fd = new FolderDialogSL5.FolderDialog();
+            fd.Show();
+            if (fd.SelectedFolderPath != null)
+            {
+                if (this.Users.SelectedItem.Setting.TVFolderRoot == null)
+                {
+                    this.Users.SelectedItem.Setting.TVFolderRoot = fd.SelectedFolderPath;
+                }
+            }
+        }
+
+        partial void SelectMovieFolderRoot_Execute()
+        {
+            FolderDialogSL5.FolderDialog fd = new FolderDialogSL5.FolderDialog();
+            fd.Show();
+            if (fd.SelectedFolderPath != null)
+            {
+                if (this.Users.SelectedItem.Setting.MovieFolderRoot == null)
+                {
+                    this.Users.SelectedItem.Setting.MovieFolderRoot = fd.SelectedFolderPath;
+                }
+            }
         }
     }
 }
