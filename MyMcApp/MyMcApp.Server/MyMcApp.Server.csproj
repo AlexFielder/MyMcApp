@@ -13,7 +13,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>LightSwitchApplication</RootNamespace>
     <AssemblyName>Application.Server</AssemblyName>
-    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <LightSwitchVersion>v3.0</LightSwitchVersion>
     <DefaultLanguage>en-US</DefaultLanguage>
     <SupportedCultures>en-US</SupportedCultures>
@@ -55,6 +55,12 @@
     <NoWarn>1522</NoWarn>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="ElylsExtensions.Common">
+      <HintPath>..\_Pvt_Extensions\ElylsExtensions\Server\Reference\ElylsExtensions.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="ElylsExtensions.Server">
+      <HintPath>..\_Pvt_Extensions\ElylsExtensions\Server\Reference\ElylsExtensions.Server.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.LightSwitch.Extensions.Server">
       <HintPath>..\_Pvt_Extensions\Microsoft.LightSwitch.Extensions\ServerGen\Reference\Microsoft.LightSwitch.Extensions.Server.dll</HintPath>
     </Reference>
@@ -197,11 +203,21 @@
       <ProjectCritical>True</ProjectCritical>
     </Reference>
     <Reference Include="TheTVDBSharp">
-      <HintPath>..\..\..\TheTVDBSharp\TheTVDBSharp\bin\Debug\TheTVDBSharp.dll</HintPath>
+      <HintPath>..\..\TheTVDBSharp\bin\Debug\TheTVDBSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="WebcamExtension.Common">
+      <HintPath>..\_Pvt_Extensions\WebcamExtension\Server\Reference\WebcamExtension.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="WebcamExtension.Server">
+      <HintPath>..\_Pvt_Extensions\WebcamExtension\Server\Reference\WebcamExtension.Server.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="GlobalConfiguration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UserCode\ApplicationDataService.cs" />
+    <Compile Include="UserCode\Shared\Setting.cs" />
+    <Compile Include="UserCode\Shared\User.cs" />
   </ItemGroup>
   <ItemGroup>
     <LightSwitchModel Include="Properties\Service.lsml">

@@ -144,12 +144,20 @@
     </_BuildFile>
   </ItemGroup>
   <ItemGroup>
+    <LightSwitchExtension Include="ElylsExtensions">
+      <Client>ELYLSEXTENSIONS.CLIENT;ELYLSEXTENSIONS.COMMON;LIQUID.RICHTEXT;LIQUID;SYSTEM.XML.SERIALIZATION;ELYLSEXTENSIONS.CLIENT.DESIGN</Client>
+      <Server>ELYLSEXTENSIONS.COMMON;ELYLSEXTENSIONS.SERVER</Server>
+    </LightSwitchExtension>
     <LightSwitchExtension Include="Microsoft.LightSwitch.Cosmopolitan">
       <Client>MICROSOFT.LIGHTSWITCH.COSMOPOLITAN.CLIENT</Client>
     </LightSwitchExtension>
     <LightSwitchExtension Include="Microsoft.LightSwitch.Extensions">
       <Client>MICROSOFT.LIGHTSWITCH.EXTENSIONS.CLIENT;MICROSOFT.LIGHTSWITCH.EXTENSIONS.DESIGN.CLIENT</Client>
       <Server>MICROSOFT.LIGHTSWITCH.EXTENSIONS.SERVER</Server>
+    </LightSwitchExtension>
+    <LightSwitchExtension Include="WebcamExtension">
+      <Client>WEBCAMEXTENSION.CLIENT;WEBCAMEXTENSION.COMMON;IMAGETOOLS;IMAGETOOLS.IO.JPEG;IMAGETOOLS.IO.PNG;IMAGETOOLS.UTILS;ICSHARPCODE.SHARPZLIB.SILVERLIGHT;WEBCAMEXTENSION.CLIENT.DESIGN</Client>
+      <Server>WEBCAMEXTENSION.COMMON;WEBCAMEXTENSION.SERVER</Server>
     </LightSwitchExtension>
   </ItemGroup>
   <ItemGroup>

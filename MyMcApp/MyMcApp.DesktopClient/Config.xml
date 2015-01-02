@@ -24,5 +24,17 @@
     <ExtensionAssembly>Microsoft.LightSwitch.SdkProxy, Version=10.0.11.3, Culture=neutral, PublicKeyToken=31BF3856AD364E35</ExtensionAssembly>
     <ExtensionAssembly>Microsoft.LightSwitch.Cosmopolitan.Client, Version=11.0.0.0, Culture=neutral, PublicKeyToken=31BF3856AD364E35</ExtensionAssembly>
     <ExtensionAssembly>Microsoft.LightSwitch.Extensions.Client, Version=11.0.0.0, Culture=neutral, PublicKeyToken=31BF3856AD364E35</ExtensionAssembly>
+    <ExtensionAssembly>ElylsExtensions.Client, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</ExtensionAssembly>
+    <ExtensionAssembly>ElylsExtensions.Common, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</ExtensionAssembly>
+    <ExtensionAssembly>Liquid.RichText, Version=5.2.7.15116, Culture=neutral, PublicKeyToken=7FBDD25C3FCC3919</ExtensionAssembly>
+    <ExtensionAssembly>Liquid, Version=5.2.7.15946, Culture=neutral, PublicKeyToken=7FBDD25C3FCC3919</ExtensionAssembly>
+    <ExtensionAssembly>System.Xml.Serialization, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31BF3856AD364E35</ExtensionAssembly>
+    <ExtensionAssembly>WebcamExtension.Client, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</ExtensionAssembly>
+    <ExtensionAssembly>WebcamExtension.Common, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</ExtensionAssembly>
+    <ExtensionAssembly>ImageTools, Version=1.0.0.0, Culture=neutral, PublicKeyToken=FB8EC453A8E30E6C</ExtensionAssembly>
+    <ExtensionAssembly>ImageTools.IO.Jpeg, Version=1.0.0.0, Culture=neutral, PublicKeyToken=FB8EC453A8E30E6C</ExtensionAssembly>
+    <ExtensionAssembly>ImageTools.IO.Png, Version=1.0.0.0, Culture=neutral, PublicKeyToken=FB8EC453A8E30E6C</ExtensionAssembly>
+    <ExtensionAssembly>ImageTools.Utils, Version=1.0.0.0, Culture=neutral, PublicKeyToken=FB8EC453A8E30E6C</ExtensionAssembly>
+    <ExtensionAssembly>ICSharpCode.SharpZLib.Silverlight, Version=1.0.0.0, Culture=neutral, PublicKeyToken=5D294010D9F292B5</ExtensionAssembly>
   </ExtensionAssemblies>
 </Configuration>
