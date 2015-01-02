@@ -7,6 +7,7 @@ using Microsoft.LightSwitch;
 using Microsoft.LightSwitch.Framework.Client;
 using Microsoft.LightSwitch.Presentation;
 using Microsoft.LightSwitch.Presentation.Extensions;
+using System.Windows.Controls;
 namespace LightSwitchApplication
 {
     public partial class UsersListDetail
@@ -22,6 +23,13 @@ namespace LightSwitchApplication
             //        settings.SetProperty("ViewFinderHeight", this.DataWorkspace.ApplicationData.Settings.ViewFinderHeight);
             //    });
 
+        }
+
+        partial void SelectTVFolderRoot_Execute()
+        {
+            // Write your code here.
+            OpenFileDialog ofd = new OpenFileDialog();
+            bool? userClickedOk = ofd.ShowDialog();
         }
     }
 }

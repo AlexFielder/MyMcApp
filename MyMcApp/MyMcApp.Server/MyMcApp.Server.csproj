@@ -216,6 +216,7 @@
     <Compile Include="GlobalConfiguration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UserCode\ApplicationDataService.cs" />
+    <Compile Include="UserCode\Shared\MovieGenre.cs" />
     <Compile Include="UserCode\Shared\Setting.cs" />
     <Compile Include="UserCode\Shared\User.cs" />
   </ItemGroup>

@@ -74,6 +74,9 @@
     <ServiceConfiguration Include="ServiceConfiguration.cscfg" />
   </ItemGroup>
   <ItemGroup Condition="'$(BuildingInsideVisualStudio)' != 'true'">
+    <ProjectReference Include="MyMcApp.HTMLClient1\MyMcApp.HTMLClient1.jsproj">
+      <Name>Client</Name>
+    </ProjectReference>
     <ProjectReference Include="MyMcApp.DesktopClient\MyMcApp.DesktopClient.csproj">
       <Name>Client</Name>
     </ProjectReference>
@@ -161,6 +164,10 @@
     </LightSwitchExtension>
   </ItemGroup>
   <ItemGroup>
+    <SubProject Include="MyMcApp.HTMLClient1\MyMcApp.HTMLClient1.jsproj">
+      <InstanceGuid>{260b5363-5e55-4d42-a101-5a4ee8efb0c5}</InstanceGuid>
+      <Name>Client</Name>
+    </SubProject>
     <SubProject Include="MyMcApp.DesktopClient\MyMcApp.DesktopClient.csproj">
       <InstanceGuid>{fe80b32e-c867-414a-8041-77f727fa42c6}</InstanceGuid>
       <Name>Client</Name>

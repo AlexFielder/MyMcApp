@@ -490,16 +490,6 @@
         Name="Actor"
         EntitySet="Actors" />
     </AssociationSet>
-    <AssociationSet
-      Name="User_Shows"
-      Association="User_Show">
-      <AssociationSetEnd
-        Name="User"
-        EntitySet="Users" />
-      <AssociationSetEnd
-        Name="Show"
-        EntitySet="Shows" />
-    </AssociationSet>
     <EntitySet
       Name="Settings"
       CanDelete="True"
@@ -595,6 +585,198 @@
       <AssociationSetEnd
         Name="Setting"
         EntitySet="Settings" />
+    </AssociationSet>
+    <EntitySet
+      Name="Genres"
+      CanDelete="True"
+      CanInsert="True"
+      CanUpdate="True"
+      EntityType="Genre" />
+    <QueryOperation
+      Name="Genres_Single"
+      ReturnType="Genre">
+      <QueryOperation.Attributes>
+        <Generated />
+        <Description
+          Value="Returns the entity whose identity is specified by the parameter(s)." />
+      </QueryOperation.Attributes>
+      <QueryOperation.FilterExpression>
+        <QueryFilterExpressionTree>
+          <BinaryExpression
+            NodeType="Equal">
+            <BinaryExpression.Left>
+              <ChainExpression>
+                <MemberExpression
+                  Member="Id" />
+              </ChainExpression>
+            </BinaryExpression.Left>
+            <BinaryExpression.Right>
+              <ParameterExpression
+                Parameter="Id" />
+            </BinaryExpression.Right>
+          </BinaryExpression>
+        </QueryFilterExpressionTree>
+      </QueryOperation.FilterExpression>
+      <QueryOperation.Source>
+        <QuerySourceExpressionTree>
+          <MemberExpression
+            Member="Genres" />
+        </QuerySourceExpressionTree>
+      </QueryOperation.Source>
+      <QueryOperationParameter
+        Name="Id"
+        ParameterType=":Int32?">
+        <QueryOperationParameter.Attributes>
+          <Description
+            Value="The value of the 'Id' key property of the entity to retrieve." />
+        </QueryOperationParameter.Attributes>
+      </QueryOperationParameter>
+    </QueryOperation>
+    <QueryOperation
+      Name="Genres_SingleOrDefault"
+      ReturnType="Genre">
+      <QueryOperation.Attributes>
+        <Generated />
+        <Description
+          Value="Returns the entity whose identity is specified by the parameter(s) or null if no such entity exists." />
+      </QueryOperation.Attributes>
+      <QueryOperation.FilterExpression>
+        <QueryFilterExpressionTree>
+          <BinaryExpression
+            NodeType="Equal">
+            <BinaryExpression.Left>
+              <ChainExpression>
+                <MemberExpression
+                  Member="Id" />
+              </ChainExpression>
+            </BinaryExpression.Left>
+            <BinaryExpression.Right>
+              <ParameterExpression
+                Parameter="Id" />
+            </BinaryExpression.Right>
+          </BinaryExpression>
+        </QueryFilterExpressionTree>
+      </QueryOperation.FilterExpression>
+      <QueryOperation.Source>
+        <QuerySourceExpressionTree>
+          <MemberExpression
+            Member="Genres" />
+        </QuerySourceExpressionTree>
+      </QueryOperation.Source>
+      <QueryOperationParameter
+        Name="Id"
+        ParameterType=":Int32?">
+        <QueryOperationParameter.Attributes>
+          <Description
+            Value="The value of the 'Id' key property of the entity to retrieve." />
+        </QueryOperationParameter.Attributes>
+      </QueryOperationParameter>
+    </QueryOperation>
+    <EntitySet
+      Name="MovieGenres"
+      CanDelete="True"
+      CanInsert="True"
+      CanUpdate="True"
+      EntityType="MovieGenre" />
+    <QueryOperation
+      Name="MovieGenres_Single"
+      ReturnType="MovieGenre">
+      <QueryOperation.Attributes>
+        <Generated />
+        <Description
+          Value="Returns the entity whose identity is specified by the parameter(s)." />
+      </QueryOperation.Attributes>
+      <QueryOperation.FilterExpression>
+        <QueryFilterExpressionTree>
+          <BinaryExpression
+            NodeType="Equal">
+            <BinaryExpression.Left>
+              <ChainExpression>
+                <MemberExpression
+                  Member="Id" />
+              </ChainExpression>
+            </BinaryExpression.Left>
+            <BinaryExpression.Right>
+              <ParameterExpression
+                Parameter="Id" />
+            </BinaryExpression.Right>
+          </BinaryExpression>
+        </QueryFilterExpressionTree>
+      </QueryOperation.FilterExpression>
+      <QueryOperation.Source>
+        <QuerySourceExpressionTree>
+          <MemberExpression
+            Member="MovieGenres" />
+        </QuerySourceExpressionTree>
+      </QueryOperation.Source>
+      <QueryOperationParameter
+        Name="Id"
+        ParameterType=":Int32?">
+        <QueryOperationParameter.Attributes>
+          <Description
+            Value="The value of the 'Id' key property of the entity to retrieve." />
+        </QueryOperationParameter.Attributes>
+      </QueryOperationParameter>
+    </QueryOperation>
+    <QueryOperation
+      Name="MovieGenres_SingleOrDefault"
+      ReturnType="MovieGenre">
+      <QueryOperation.Attributes>
+        <Generated />
+        <Description
+          Value="Returns the entity whose identity is specified by the parameter(s) or null if no such entity exists." />
+      </QueryOperation.Attributes>
+      <QueryOperation.FilterExpression>
+        <QueryFilterExpressionTree>
+          <BinaryExpression
+            NodeType="Equal">
+            <BinaryExpression.Left>
+              <ChainExpression>
+                <MemberExpression
+                  Member="Id" />
+              </ChainExpression>
+            </BinaryExpression.Left>
+            <BinaryExpression.Right>
+              <ParameterExpression
+                Parameter="Id" />
+            </BinaryExpression.Right>
+          </BinaryExpression>
+        </QueryFilterExpressionTree>
+      </QueryOperation.FilterExpression>
+      <QueryOperation.Source>
+        <QuerySourceExpressionTree>
+          <MemberExpression
+            Member="MovieGenres" />
+        </QuerySourceExpressionTree>
+      </QueryOperation.Source>
+      <QueryOperationParameter
+        Name="Id"
+        ParameterType=":Int32?">
+        <QueryOperationParameter.Attributes>
+          <Description
+            Value="The value of the 'Id' key property of the entity to retrieve." />
+        </QueryOperationParameter.Attributes>
+      </QueryOperationParameter>
+    </QueryOperation>
+    <AssociationSet
+      Name="MovieGenre_Movies"
+      Association="MovieGenre_Movie">
+      <AssociationSetEnd
+        Name="MovieGenre"
+        EntitySet="MovieGenres" />
+      <AssociationSetEnd
+        Name="Movie"
+        EntitySet="Movies" />
+    </AssociationSet>
+    <AssociationSet
+      Name="MovieGenre_Genres"
+      Association="MovieGenre_Genre">
+      <AssociationSetEnd
+        Name="MovieGenre"
+        EntitySet="MovieGenres" />
+      <AssociationSetEnd
+        Name="Genre"
+        EntitySet="Genres" />
     </AssociationSet>
   </EntityContainer>
   <DataService
@@ -694,27 +876,6 @@
         </SsdlAssociationSetEnd>
       </AssociationSetMapping.Attributes>
     </AssociationSetMapping>
-    <AssociationSetMapping
-      AssociationSet="User_Shows">
-      <AssociationSetMapping.Attributes>
-        <SsdlAssociationSet
-          Name="User_Shows" />
-        <SsdlAssociationSetEnd
-          End="ApplicationData/Members[User_Shows]/Members[User]">
-          <SsdlAssociationSetEnd.Attributes>
-            <SsdlPropertyRef
-              Name="Id" />
-          </SsdlAssociationSetEnd.Attributes>
-        </SsdlAssociationSetEnd>
-        <SsdlAssociationSetEnd
-          End="ApplicationData/Members[User_Shows]/Members[Show]">
-          <SsdlAssociationSetEnd.Attributes>
-            <SsdlPropertyRef
-              Name="User_Show" />
-          </SsdlAssociationSetEnd.Attributes>
-        </SsdlAssociationSetEnd>
-      </AssociationSetMapping.Attributes>
-    </AssociationSetMapping>
     <EntitySetMapping
       EntitySet="Shows">
       <EntitySetMapping.Attributes>
@@ -754,6 +915,61 @@
           Type="int" />
       </EntitySetMapping.Attributes>
     </EntitySetMapping>
+    <AssociationSetMapping
+      AssociationSet="MovieGenre_Movies">
+      <AssociationSetMapping.Attributes>
+        <SsdlAssociationSet
+          Name="MovieGenre_Movies" />
+        <SsdlAssociationSetEnd
+          End="ApplicationData/Members[MovieGenre_Movies]/Members[MovieGenre]">
+          <SsdlAssociationSetEnd.Attributes>
+            <SsdlPropertyRef
+              Name="MovieGenre_Movie" />
+          </SsdlAssociationSetEnd.Attributes>
+        </SsdlAssociationSetEnd>
+        <SsdlAssociationSetEnd
+          End="ApplicationData/Members[MovieGenre_Movies]/Members[Movie]">
+          <SsdlAssociationSetEnd.Attributes>
+            <SsdlPropertyRef
+              Name="Id" />
+          </SsdlAssociationSetEnd.Attributes>
+        </SsdlAssociationSetEnd>
+      </AssociationSetMapping.Attributes>
+    </AssociationSetMapping>
+    <EntitySetMapping
+      EntitySet="MovieGenres">
+      <EntitySetMapping.Attributes>
+        <SsdlForeignKeyProperty
+          Name="MovieGenre_Movie"
+          Nullable="False"
+          Type="int" />
+        <SsdlForeignKeyProperty
+          Name="MovieGenre_Genre"
+          Nullable="False"
+          Type="int" />
+      </EntitySetMapping.Attributes>
+    </EntitySetMapping>
+    <AssociationSetMapping
+      AssociationSet="MovieGenre_Genres">
+      <AssociationSetMapping.Attributes>
+        <SsdlAssociationSet
+          Name="MovieGenre_Genres" />
+        <SsdlAssociationSetEnd
+          End="ApplicationData/Members[MovieGenre_Genres]/Members[MovieGenre]">
+          <SsdlAssociationSetEnd.Attributes>
+            <SsdlPropertyRef
+              Name="MovieGenre_Genre" />
+          </SsdlAssociationSetEnd.Attributes>
+        </SsdlAssociationSetEnd>
+        <SsdlAssociationSetEnd
+          End="ApplicationData/Members[MovieGenre_Genres]/Members[Genre]">
+          <SsdlAssociationSetEnd.Attributes>
+            <SsdlPropertyRef
+              Name="Id" />
+          </SsdlAssociationSetEnd.Attributes>
+        </SsdlAssociationSetEnd>
+      </AssociationSetMapping.Attributes>
+    </AssociationSetMapping>
   </DataService>
   <EntityType
     Name="User">
@@ -820,11 +1036,6 @@
         </EntityProperty.Attributes>
       </EntityProperty>
       <NavigationProperty
-        Name="FavouriteShows"
-        Association="User_Show"
-        FromEnd="User"
-        ToEnd="Show" />
-      <NavigationProperty
         Name="Setting"
         Association="User_Setting"
         FromEnd="User"
@@ -869,7 +1080,7 @@
         </EntityProperty.Attributes>
       </EntityProperty>
       <EntityProperty
-        Name="Name"
+        Name="Title"
         PropertyType=":String">
         <EntityProperty.Attributes>
           <Required />
@@ -900,6 +1111,28 @@
         Association="Movie_Actor"
         FromEnd="Movie"
         ToEnd="Actor" />
+      <EntityProperty
+        Name="Length"
+        PropertyType=":Int32">
+        <EntityProperty.Attributes>
+          <Required />
+          <NotSearchable />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <EntityProperty
+        Name="Plot"
+        PropertyType=":String">
+        <EntityProperty.Attributes>
+          <Required />
+          <MaxLength
+            Value="255" />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <NavigationProperty
+        Name="MovieGenres"
+        Association="MovieGenre_Movie"
+        FromEnd="Movie"
+        ToEnd="MovieGenre" />
     </EntityType.Properties>
   </EntityType>
   <EntityType
@@ -1020,11 +1253,6 @@
         Association="Show_Episode"
         FromEnd="Show"
         ToEnd="Episode" />
-      <NavigationProperty
-        Name="User"
-        Association="User_Show"
-        FromEnd="Show"
-        ToEnd="User" />
     </EntityType.Properties>
   </EntityType>
   <EntityType
@@ -1140,21 +1368,6 @@
       Multiplicity="Many"
       EntityType="Actor" />
   </Association>
-  <Association
-    Name="User_Show">
-    <AssociationEnd
-      Name="User"
-      EntityType="User">
-      <AssociationEnd.Attributes>
-        <DeleteRule
-          Action="Restrict" />
-      </AssociationEnd.Attributes>
-    </AssociationEnd>
-    <AssociationEnd
-      Name="Show"
-      Multiplicity="Many"
-      EntityType="Show" />
-  </Association>
   <EntityType
     Name="Setting">
     <EntityType.Methods>
@@ -1207,38 +1420,6 @@
         Association="User_Setting"
         FromEnd="Setting"
         ToEnd="User" />
-      <EntityProperty
-        Name="ResolutionWidth"
-        PropertyType=":Int32">
-        <EntityProperty.Attributes>
-          <Required />
-          <NotSearchable />
-        </EntityProperty.Attributes>
-      </EntityProperty>
-      <EntityProperty
-        Name="ResolutionHeight"
-        PropertyType=":Int32">
-        <EntityProperty.Attributes>
-          <Required />
-          <NotSearchable />
-        </EntityProperty.Attributes>
-      </EntityProperty>
-      <EntityProperty
-        Name="ViewFinderWidth"
-        PropertyType=":Int32">
-        <EntityProperty.Attributes>
-          <Required />
-          <NotSearchable />
-        </EntityProperty.Attributes>
-      </EntityProperty>
-      <EntityProperty
-        Name="ViewFinderHeight"
-        PropertyType=":Int32">
-        <EntityProperty.Attributes>
-          <Required />
-          <NotSearchable />
-        </EntityProperty.Attributes>
-      </EntityProperty>
     </EntityType.Properties>
   </EntityType>
   <Association
@@ -1255,5 +1436,130 @@
     <AssociationEnd
       Name="Setting"
       EntityType="Setting" />
+  </Association>
+  <EntityType
+    Name="Genre">
+    <EntityType.Methods>
+      <EntityMethod
+        Name="Delete">
+        <EntityMethod.Attributes>
+          <Generated />
+        </EntityMethod.Attributes>
+      </EntityMethod>
+    </EntityType.Methods>
+    <EntityType.Properties>
+      <KeyProperty
+        Name="Id"
+        PropertyType=":Int32">
+        <KeyProperty.Attributes>
+          <Required />
+          <NotSearchable />
+        </KeyProperty.Attributes>
+      </KeyProperty>
+      <EntityProperty
+        Name="RowVersion"
+        PropertyType=":RowVersion">
+        <EntityProperty.Attributes>
+          <UseForConcurrency />
+          <Generated />
+          <Hidden />
+          <NotSearchable />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <EntityProperty
+        Name="Name"
+        PropertyType=":String">
+        <EntityProperty.Attributes>
+          <Required />
+          <MaxLength
+            Value="255" />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <NavigationProperty
+        Name="MovieGenres"
+        Association="MovieGenre_Genre"
+        FromEnd="Genre"
+        ToEnd="MovieGenre" />
+    </EntityType.Properties>
+  </EntityType>
+  <EntityType
+    Name="MovieGenre">
+    <EntityType.Methods>
+      <EntityMethod
+        Name="Delete">
+        <EntityMethod.Attributes>
+          <Generated />
+        </EntityMethod.Attributes>
+      </EntityMethod>
+    </EntityType.Methods>
+    <EntityType.Properties>
+      <KeyProperty
+        Name="Id"
+        PropertyType=":Int32">
+        <KeyProperty.Attributes>
+          <Required />
+          <NotSearchable />
+        </KeyProperty.Attributes>
+      </KeyProperty>
+      <EntityProperty
+        Name="RowVersion"
+        PropertyType=":RowVersion">
+        <EntityProperty.Attributes>
+          <UseForConcurrency />
+          <Generated />
+          <Hidden />
+          <NotSearchable />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <NavigationProperty
+        Name="Movie"
+        Association="MovieGenre_Movie"
+        FromEnd="MovieGenre"
+        ToEnd="Movie" />
+      <NavigationProperty
+        Name="Genre"
+        Association="MovieGenre_Genre"
+        FromEnd="MovieGenre"
+        ToEnd="Genre" />
+      <EntityProperty
+        Name="Summary"
+        PropertyType=":String">
+        <EntityProperty.Attributes>
+          <Computed />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+    </EntityType.Properties>
+  </EntityType>
+  <Association
+    Name="MovieGenre_Movie">
+    <AssociationEnd
+      Name="MovieGenre"
+      Multiplicity="Many"
+      EntityType="MovieGenre" />
+    <AssociationEnd
+      Name="Movie"
+      Multiplicity="One"
+      EntityType="Movie">
+      <AssociationEnd.Attributes>
+        <DeleteRule
+          Action="Restrict" />
+      </AssociationEnd.Attributes>
+    </AssociationEnd>
+  </Association>
+  <Association
+    Name="MovieGenre_Genre">
+    <AssociationEnd
+      Name="MovieGenre"
+      Multiplicity="Many"
+      EntityType="MovieGenre" />
+    <AssociationEnd
+      Name="Genre"
+      Multiplicity="One"
+      EntityType="Genre">
+      <AssociationEnd.Attributes>
+        <DeleteRule
+          Action="Restrict" />
+      </AssociationEnd.Attributes>
+    </AssociationEnd>
   </Association>
 </ModelFragment>
